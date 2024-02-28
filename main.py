@@ -3,8 +3,8 @@ import pandas
 from random import choice
 import smtplib
 
-my_email = 'test001saha@gmail.com'
-passw = 'ghqligvctzfftjop'
+my_email = 'name@mail.com'
+passw = '123456'
 
 today = datetime.now()
 today_tuple = (today.month,today.day)
@@ -20,7 +20,7 @@ if today_tuple in new_dict:
     with open(final_letter) as letter_file:
         contents = letter_file.read()
         contents = contents.replace('[NAME]',birthday_person['name'])
-    with smtplib.SMTP('smtp.gmail.com',587) as connection:
+    with smtplib.SMTP('smtp.email.com',123) as connection:
         connection.starttls()
         connection.login(user=my_email,password=passw)
         connection.sendmail(from_addr=my_email,to_addrs=birthday_person['email'],msg=f'Subject:Happy Birthday\n\n{contents}')
